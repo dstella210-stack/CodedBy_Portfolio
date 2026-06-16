@@ -12,7 +12,7 @@
 
         <nav class="mb-10">
             <ul class="flex justify-center gap-8 text-lg">
-                <li><a href="#about" class="hover:text-blue-600">About</a></li>
+                <li><a href="#about" class="hover:text-blue-600 shadow-sm">About</a></li>
                 <li><a href="#education" class="hover:text-red-600">Education</a></li>
                 <li><a href="#projects" class="hover:text-emerald-600">Projects</a></li>
                 <li><a href="#experience" class="hover:text-pink-600">Experience</a></li>
@@ -58,12 +58,15 @@
 
         <section id="projects" class="mb-8">
             <h2 class="font-bold">Projects</h2>
+        
 
-            <div>
-                <h3 class="text-xl text-emerald-500">
-    Linux Kernel Shell in C </h3>
+            <h3 
+                onclick="toggleProject('shell')"
+                class="text-xl text-emerald-500 hover:underline">
+            Linux Kernel Shell in C </h3>
 
-<ul class="list-disc pl-6 mt-2 space-y-1">
+            <div id="shell" class="hidden pl-6 mt-2">
+                <ul class="list-disc pl-6 mt-2 space-y-1">
     <li>
         Developed a Linux shell in C that executes user commands through process creation and system calls.
     </li>
@@ -77,12 +80,18 @@
     </li>
 </ul>
 
-</h3>
+<p>
+                    <a href="https://github.com/dstella210-stack/Linux_ShellC" target="_blank" class="font-bold underline text-black-600">
+                       Repository
+                    </a>
+                </p>
+            </div>
 
-    <h4 class="text-xl text-emerald-500">
-    Campus Productivty App User Interface
-</h3>
-<ul class="list-disc pl-6 mt-2">
+<h3 onclick="toggleProject('prod_app')"
+    class="text-xl text-emerald-500 cursor-pointer hover:underline"> Temple University Campus Productivty App</h3>
+
+<div id="prod_app" class="hidden pl-6 mt-2"> 
+    <ul class="list-disc pl-6 mt-2">
     <li>
         Designed interface screens using Figma for fitness, event scheduling, and nutrition pages. 
     </li>
@@ -93,10 +102,23 @@
 
 </ul>
 
-            </div>
-        </section>
+</div>
 
-        
+<h4 onclick="toggleProject('chatbot')"class="text-xl text-emerald-500 cursor-pointer hover:underline">Career Path AI Agent Chatbot</h4>
+<div id="chatbot" class="hidden pl-6 mt-2"> <ul class="list-disc pl-6 mt-2">
+    <ul class="list-disc pl-6 mt-2 space-y-1"></ul>
+    <li>Career Path Agent that uses Gemini AI to extract a user's current skills, compare them against a target role, and estimate a role match score</li>
+    <li>Identifies matches skills, missing core skills, and nice to have gaps, then displays the results in a clean Streamlit dashboard.</li>
+    <li> Wrriten in Python </li>
+</ul>
+
+                <p>
+                    <a href="https://github.com/dstella210-stack/Gemini_PathAgent" target="_blank" class="underline hover: text-blue-600">
+                        Career Path Agent
+                    </a>
+                </p>
+</div>
+        </section>
 
         <section id="skills" class="mb-3">
     <h2 class="font-bold">Skills</h2>
@@ -181,6 +203,19 @@
         </section>
 
     </div>
+
+    <script>
+        function toggleProject(projectId) {
+            let project = document.getElementById(projectId);
+            if (project.classList.contains("hidden")) {
+                project.classList.remove("hidden");
+            } else {
+                    project.classList.add("hidden");
+                }
+        }
+
+
+    </script>
 
 </body>
 
