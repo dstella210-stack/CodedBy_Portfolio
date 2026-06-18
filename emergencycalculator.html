@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Calculator</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            background: #f7f7f7;
+        }
+
+        .calculator-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-2"></div>
+
+        <div class="col-8">
+            <div class="calculator-box">
+                <h3 class="text-center mb-4">Savings Calculator</h3>
+
+                <div class="mb-3">
+                    <label class="form-label">Monthly Expenses ($)</label>
+                    <input type="number" id="expenses" class="form-control">
+                    <div id="expError" class="error"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Coverage Period (Months)</label>
+                    <input type="number" id="coverage" class="form-control">
+                    <div id="covError" class="error"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Current Savings ($)</label>
+                    <input type="number" id="savings" class="form-control">
+                    <div id="savError" class="error"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Monthly Income ($)</label>
+                    <input type="number" id="income" class="form-control">
+                    <div id="incError" class="error"></div>
+                </div>
+
+                <button id="calculateBtn" class="btn btn-primary w-100">Calculate</button>
+
+                <hr>
+
+                <h5>Results</h5>
+                <p><strong>Emergency Fund Needed:</strong> $<span id="fundNeeded">0</span></p>
+                <p><strong>Savings Gap:</strong> $<span id="savingsGap">0</span></p>
+                <p><strong>Available Monthly Savings:</strong> $<span id="availableSave">0</span></p>
+                <p><strong>Months Required to Reach Goal:</strong> <span id="monthsNeeded">0</span></p>
+                <p><strong>Recommended Monthly Savings Goal:</strong> $<span id="monthlyGoal">0</span></p>
+
+                <p id="warning" class="text-danger fw-bold"></p>
+            </div>
+        </div>
+
+        <div class="col-2"></div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function () {
+
+    $("#calculateBtn").click(function () {
+
+        $(".error").text("");
+        $("#warning").text("");
+
+        let expenses = parseFloat($("#expenses").val());
+        let coverage = parseFloat($("#coverage").val());
+        let savings = parseFloat($("#savings").val());
+        let income = parseFloat($("#income").val());
+
+        let valid = true;
+
+        if (isNaN(expenses) || expenses <= 0) {
+            $("#expError").text("Enter a positive number.");
+            valid = false;
+        }
+
+        if (isNaN(coverage) || coverage <= 0) {
+            $("#covError").text("Enter a positive number.");
+            valid = false;
+        }
+
+        if (isNaN(savings)) {
+            $("#savError").text("Enter a valid number.");
+            valid = false;
+        }
+
+        if (isNaN(income) || income <= 0) {
+            $("#incError").text("Enter a positive income amount.");
+            valid = false;
+        }
+
+        if (!valid) {
+            return;
+        }
+
+        let fundNeeded = expenses * coverage;
+        let gap = fundNeeded - savings;
+        let available = income - expenses;
+        let monthsNeeded;
+        let monthlyGoal = Math.max(available, 0);
+
+        if (available <= 0) {
+            monthsNeeded = "N/A";
+            $("#warning").text("Your income does not exceed expenses. You cannot save money with the current numbers.");
+        } else if (gap <= 0) {
+            monthsNeeded = 0;
+            monthlyGoal = 0;
+            $("#warning").text("You have already reached your emergency fund goal!");
+        } else {
+            monthsNeeded = Math.ceil(gap / available);
+        }
+
+        $("#fundNeeded").text(fundNeeded.toFixed(2));
+        $("#savingsGap").text(gap.toFixed(2));
+        $("#availableSave").text(available.toFixed(2));
+        $("#monthsNeeded").text(monthsNeeded);
+        $("#monthlyGoal").text(monthlyGoal.toFixed(2));
+    });
+
+});
+</script>
+
+</body>
+</html>
+
