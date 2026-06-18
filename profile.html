@@ -17,29 +17,24 @@
 
             <nav class="mb-10">
                 <ul class="flex justify-center gap-8 text-lg">
-                    <li><a href="#about" class="hover:text-blue-300 shadow-sm">About</a></li>
-                    <li><a href="#education" class="hover:text-blue-300">Education</a></li>
-                    <li><a href="#projects" class="hover:text-blue-300">Projects</a></li>
-                    <li><a href="#experience" class="hover:text-blue-300">Experience</a></li>
-                    <li><a href="#skills" class="hover:text-blue-300">Skills</a></li>
+                    <li><a href="#about" class="hover:text-amber-300 shadow-sm">About</a></li>
+                    <li><a href="#projects" class="hover:text-amber-300">Projects</a></li>
+                    <li><a href="#experience" class="hover:text-amber-300">Experience</a></li>
+                    <li><a href="#skills" class="hover:text-amber-300">Skills</a></li>
+                    <li><a href="#contact" class="hover:text-amber-300">Contact</a></li>
                 </ul>   
             </nav>
 
-            <section id="about" class="mb-16">
-    <div class="py-15 px-8">
+            <section id="about" class="mb-2">
+    <div class="py-15">
         <div class="flex flex-row justify-between items-center gap-12">
 
             <div class="flex flex-col justify-center">
                 <div>
-                    <h1 class="text-6xl font-medium text-white mb-3">
-                        Hello, I'm
-                    </h1>
-
                     <h1 class="text-6xl font-medium text-sky-300">
                         Daniel Stella
                     </h1>
-                </div>
-
+                </div> 
                 <div class="max-w-2xl py-4">
                     <p class="mb-4 font-mono leading-relaxed">
                         I am a Management Information Systems student with experience in C, JavaScript, HTML, CSS, and Python. I enjoy developing on both the front and back end, learning new technologies, and solving technical problems. In my free time I enjoy hiking, art, football, gaming, and music!
@@ -48,128 +43,147 @@
                 </div>
             </div>
 
-            <div class="h-[500px] w-[350px] justify-center items-center rounded-md">
+            <div class="h-[380px] w-[350px] overflow-hidden rounded-md">
                 <img
                     src="transparent_headshot.png"
                     alt="Daniel Stella"
-                    class="h-full w-full object-cover rounded-md"
+                    class="h-full w-full object-cover object-top"
                 >
             </div>
-
         </div>
     </div>
 </section>
 
-
-            <section id="education" class="mb-8">
+            <section id="education" class="mb-10">
                 <h2 class="font-bold">Education</h2>
-            <div class="flex gap-6 items-center">
-                <img defer src="Temple-Owls-logo.png" 
-                alt="Temple University" 
-                class="w-48 h-48 object-contain flex-shrink-0">
             
               
                 <ul class="list-disc pl-6 space-y-2">
                     <li>Temple University Fox School of Business</li>
                     <li>GPA: 3.64</li>
                     <li>Expected Graduation: Fall 2027</li>
+                    <li><a href="https://community.mis.temple.edu/dstella/" class="underline">Temple MIS Portfolio</a></li> 
                 </ul>
             
-            </div>
-
-
-            
+            <!-- </div> -->
             </section>
 
-        </section>
+    
 
-            <section id="projects" class="mb-8">
-                <h2 class="font-bold">Projects</h2>
-            
+<section id="projects" class="mb-8">
+    
+    <div class="flex items-center gap-4 mb-8">
+    <h2 class="font-bold whitespace-nowrap">Projects</h2>
+        <input type="text" id="portfolio_searchbar" placeholder="Search Projects" class="px-6 py-2 w-72 rounded-md  outline-white-900 bg-gradient-to-br from-white-950 via-blue-950 to-black text-white">
+        </div>
 
-                <h3 
-                    onclick="toggleProject('shell')"
-                    class="ext-xl text-amber-300 font-bold hover:underline">
-                Linux Kernel Shell in C </h3>
+    <div class="project-card flex flex-row justify-between items-center gap-12 mb-12"
+     data-keywords="linux C terminal operating system shell program">
 
-                <div id="shell" class="hidden pl-6 mt-2">
-                    <ul class="list-disc pl-6 mt-2 space-y-1">
-        <li>
-            Developed a Linux shell in C that executes user commands through process creation and system calls.
-        </li>
+    <div class="max-w-2xl">
+        <h3 class="text-sky-300 font-bold mb-4">
+            Linux Kernel Shell in C
+        </h3>
 
-        <li>
-            Implemented support for built-in commands, command parsing, and input handling to create an interactive command-line environment.
-        </li>
+        <ul class="list-disc pl-6 space-y-2">
+            <li>Developed a Linux shell in C that executes user commands through process creation and system calls.</li>
+            <li>Implemented support for built-in commands, command parsing, and input handling to create an interactive command-line environment.</li>
+            <li>Applied operating system concepts including process management, memory handling, and communication between parent and child processes.</li>
+        </ul>
 
-        <li>
-            Applied operating system concepts including process management, memory handling, and communication between parent and child processes.
-        </li>
-    </ul>
-
-    <p>
-                        <a href="https://github.com/dstella210-stack/Linux_ShellC" target="_blank" class="inline-block px-4 py-2 bg-slate-900 text-white font-sans rounded-lg border border-blue-900 hover:border-blue-500 hover:bg-slate-800 transition">
-                        Linux Shell Repository
-                        </a>
-                    </p>
-                </div>
-
-    <h3 onclick="toggleProject('prod_app')"
-        class="ext-xl text-amber-300 font-bold  hover:underline"> Temple University Campus Productivty App</h3>
-
-    <div id="prod_app" class="hidden pl-6 mt-2"> 
-        <ul class="list-disc pl-6 mt-2">
-        <li>
-            Designed interface screens using Figma for fitness, event scheduling, and nutrition pages. 
-        </li>
-
-        <li>
-            Implemented AI chatbot using Jotform framework to direct users navigation of interface and answered basic questions about the usage of the application.
-        </li>
-
-    </ul>
-
+        <a href="https://github.com/dstella210-stack/Linux_ShellC"
+           target="_blank"
+           class="inline-block mt-4 px-4 py-2 bg-slate-900 text-white font-sans rounded-lg border border-blue-900 hover:border-blue-500 hover:bg-slate-800 transition">
+            Linux Shell Repository
+        </a>
     </div>
 
-    <h4 onclick="toggleProject('chatbot')"class="ext-xl font-bold cursor-pointer text-amber-300 hover:underline">Career Path AI Agent Chatbot</h4>
-    <div id="chatbot" class="hidden pl-6 mt-2"> <ul class="list-disc pl-6 mt-2">
-        <ul class="list-disc pl-6 mt-2 space-y-1"></ul>
-        <li>Career Path Agent that uses Gemini AI to extract a user's current skills, compare them against a target role, and estimate a role match score</li>
-        <li>Identifies matches skills, missing core skills, and nice to have gaps, then displays the results in a clean Streamlit dashboard.</li>
-        <li> Wrriten in Python </li>
-    </ul>
-
+    <div class="w-[450px] flex-shrink-0">
         <img
-                    src="career-path-agent.png"
-                    alt="Career Agent"
-                    class="w-100 h-75 mx-auto shadow-lg"
-                >
-                    <p>
-                        <a href="https://github.com/dstella210-stack/Gemini_PathAgent" target="_blank" class="inline-block px-4 py-2 bg-slate-900 text-white font-sans rounded-lg border border-blue-900 hover:border-blue-500 hover:bg-slate-800 transition">
-                            Career Path Agent Repository
-                        </a>
-                    </p>
+            src="linux_screenshot.png"
+            alt="Linux shell screenshot"
+            class="w-full rounded-lg shadow-lg"
+        >
+    </div>
+    
+
+        <!-- <div class="w-[450px] flex-shrink-0"> -->
+            <!-- <img src="linux-shell.png" alt="Linux Shell Project" class="w-full rounded-lg shadow-lg"> -->
+        <!-- </div> -->
     </div>
 
-    <h5 onclick="toggleProject('turnpike')"class="ext-xl font-bold cursor-pointer text-amber-300 hover:underline">PA Turnpike Toll calculator</h5>
-    
-    <div id="turnpike" class="hidden pl-6 mt-2"> <ul class="list-disc pl-6 mt-2">
-        <ul class="list-disc pl-6 mt-2 space-y-1"></ul>
-        <li>Developed a web-based Pennsylvania Turnpike Toll Calculator that allows users to select entry and exit interchanges, choose a payment method, and receive estimated toll costs.</li>
-        <li>Integrated multiple external APIs to retrieve toll pricing, interchange location data, route distance, estimated travel time, and sunrise/sunset information.</li>
-        <li>Built an interactive user interface using HTML, Bootstrap, JavaScript, and jQuery, featuring dynamic dropdown menus and real-time data retrieval.</li>
-        <li> mplemented asynchronous API requests and data processing to combine information from several sources into a single travel summary for the user. </li>
-    </ul>
-
+    <div class="project-card flex flex-row justify-between items-center gap-12 mb-12" data-keywords="figma design UI/UX productivity">
+        <div class="max-w-2xl">
+            <h3 class="text-sky-300 font-bold mb-4">Temple University Campus Productivity App</h3>
         
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Designed interface screens using Figma for fitness, event scheduling, and nutrition pages.</li>
+                <li>Implemented an AI chatbot using the Jotform framework to help users navigate the interface and answer basic questions about the application.</li>
+            </ul>
+        </div>
 
+        <!-- <div class="w-[450px] flex-shrink-0"> -->
+            <!-- <img src="productivity-app.png" alt="Temple Productivity App" class="w-full rounded-lg shadow-lg">
+        </div> -->
+    </div>
 
-    
+    <div class="project-card flex flex-row justify-between items-center gap-12 mb-12"
+     data-keywords="python ai gemini streamlit career chatbot">
+
+    <div class="max-w-2xl">
+        <h3 class="text-sky-300 font-bold mb-4">
+            Career Path AI Agent Chatbot
+        </h3>
+
+        <ul class="list-disc pl-6 space-y-2">
+            <li>Career Path Agent that uses Gemini AI to extract a user's current skills, compare them against a target role, and estimate a role match score.</li>
+            <li>Identifies matched skills, missing core skills, and nice-to-have gaps, then displays the results in a clean Streamlit dashboard.</li>
+            <li>Written in Python.</li>
+        </ul>
+
+        <a href="https://github.com/dstella210-stack/Gemini_PathAgent"
+           target="_blank"
+           class="inline-block mt-4 px-4 py-2 bg-slate-900 text-white font-sans rounded-lg border border-blue-900 hover:border-blue-500 hover:bg-slate-800 transition">
+            Career Path Agent Repository
+        </a>
+    </div>
+
+    <div class="w-[450px] flex-shrink-0">
+        <img src="career-path-agent.png"
+             alt="Career Agent"
+             class="w-full rounded-lg shadow-lg">
+    </div>
+
+</div>
+
+   <div class="project-card flex flex-row justify-between items-center gap-12 mb-12"
+     data-keywords="APIs JavaScript JS HTML JSON Calculator Programming AWS">
+
+    <div class="max-w-2xl">
+        <h3 class="text-sky-300 font-bold mb-4">
+            PA Turnpike Toll Calculator
+        </h3>
+
+        <ul class="list-disc pl-6 space-y-2">
+            <li>Developed a web-based Pennsylvania Turnpike Toll Calculator that allows users to select entry and exit interchanges, choose a payment method, and receive estimated toll costs.</li>
+            <li>Integrated multiple external APIs to retrieve toll pricing, interchange location data, route distance, estimated travel time, and sunrise/sunset information.</li>
+            <li>Built an interactive user interface using HTML, Bootstrap, JavaScript, and jQuery, featuring dynamic dropdown menus and real-time data retrieval.</li>
+            <li>Implemented asynchronous API requests and data processing to combine information from several sources into a single travel summary for the user.</li>
+        </ul>
+    </div>
+
+    <div class="w-[450px] flex-shrink-0">
+        <img src="pa_turnpike.png"
+             alt="PA Turnpike Toll Calculator"
+             class="w-full rounded-lg shadow-lg">
+    </div>
+
+</div>
 </section>
 
     
 
-        <section id="skills" class="mb-3">
+        <section id="skills" class="mb-8">
         <h2 class="font-bold">Skills</h2>
 
         <ul class="list-disc pl-6 space-y-1">
@@ -227,12 +241,12 @@
                 </ul>
             </section>
 
-            <section class="mb-8">
+            <!-- <section class="mb-8">
                 <h2 class="font-bold text-amber-300">Contact Information</h2>
 
                 <div class="space-y-2">
                     <p>
-                        <a button ="mailto:dstella210@gmail.com" class="underline text-blue-600">
+                        <a href="mailto:dstella210@gmail.com" class="underline text-blue-600">
                             dstella210@gmail.com
                         </a>
                     </p>
@@ -249,7 +263,64 @@
                         </a>
                     </p>
                 </div>
-            </section>
+            </section> -->
+  </div>
+        <footer id="contact" class="max-w-7xl mx-auto p-8 bg-gray-900 border-t border-slate-700 pt-8 pb-8">
+            <div class="flex justify-between items-start">
+                <div class="flex gap-6 text-white-300">
+            <a href="mailto:dstella210@gmail.com"
+               class="hover:text-sky-300">
+                Email
+            </a>
+
+            <a href="https://linkedin.com/in/danielstellajr"
+               target="_blank"
+               class="hover:text-sky-300">
+                LinkedIn
+            </a>
+
+            <a href="https://github.com/dstella210-stack"
+               target="_blank"
+               class="hover:text-sky-300">
+                GitHub
+            </a>
+
+            <!-- <button id="contact-btn" class="px-4 py-2 bg-white-900 dark:text-white rounded-lg border border-blue-700 hover:border-blue-400"> Contact Me </button>
+            <div id="contact-form"
+     class="hidden mt-6 bg-slate-900 p-6rounded-lg border border-slate-700">
+
+        <div class="mb-4">
+        <label class="block mb-2">Your Email</label>
+        <input id="sender-email"
+               type="email"
+               class="w-full p-2 rounded bg-slate-800 border border-slate-600">
+        </div>
+
+    <div class="mb-4">
+        <label class="block mb-2">Subject</label>
+        <input id="subject"
+               type="text"
+               class="w-full p-2 rounded bg-slate-800 border border-slate-600">
+    </div>
+
+    <div class="mb-4">
+        <label class="block mb-2">Message</label>
+        <textarea id="message"
+                  rows="6"
+                  class="w-full p-2 rounded bg-slate-800 border border-slate-600"></textarea>
+    </div>
+
+    <button id="send-message"
+        class="px-4 py-2 bg-blue-700 rounded-lg hover:bg-blue-600">
+        Send Message
+    </button> -->
+
+</div>
+        </div>
+
+                </div>
+        
+        </footer>
 
     </div>
         </div>

@@ -1,21 +1,41 @@
 
-window.addEventListener('DOMContentLoaded', function() {
+    // function animatePlaceholder() {
+    //     const project_bar = document.getElementById("portfolio_searchbar");
+    //     const text = "Search Projects...";
 
-  VANTA.NET({
-    el: "#vanta-bg",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: 0x3b82f6,
-    backgroundColor: 0x020617
-  })
+    //     let i = 0;
 
-})
+    //     text.placeholder = text.slice(0,i);
+    //     i++;
+        
     
+    //     if (i <= text.length) {
+    //         setInterval(animatePlaceholder, 100);
+    //     }
+
+    // }
+    
+    // searchPlaceholder();
+
+    function setupProjectSearch() {
+        let searchInput = document.getElementById("portfolio_searchbar");
+        let projectcards = document.querySelectorAll(".project-card");
+        let searchText = searchInput.value.toLowerCase();
+
+    projectcards.forEach(function(card) {
+        let keywords = card.dataset.keywords.toLowerCase();
+
+        if (keywords.includes(searchText)) {
+            card.style.display = "flex";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+document
+    .getElementById("portfolio_searchbar")
+    .addEventListener("input", setupProjectSearch);
     
     
     function toggleProject(projectId) {
